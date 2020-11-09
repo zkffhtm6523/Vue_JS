@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 이 함수는 재사용가능
+        // function Arrr(){
+        //     this.val = []
+        //     this.filter =
+        // }
+        //이 함수는 만들고 끝, 익명함수 같은 느낌
+
+        //Java로 하면 AOP임.
+        Array.prototype.filter = function(callback) {
+            var temp = []
+            for(var i = 0; i<this.length; i++){
+                var result = callback(this[i])
+
+                if(result){
+                    temp.push(this[i] + 1)
+                }
+            }
+            return temp
+        }
+
+        function test(item) {
+            return item < 10
+        }
+
+        var arr = [11, 2, 6, 8, 10, 19, 5]
+        var arr2 = arr.filter(function(item){
+            return item < 10
+        })
+
+        console.log(arr2)
+
+</script>
+</body>
+</html>

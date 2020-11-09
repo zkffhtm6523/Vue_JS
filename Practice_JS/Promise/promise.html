@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function method1(){
+        setTimeout(function(){
+            return 10
+        }, 2000)
+    }
+    function method2(val){
+        setTimeout(function(){
+            return val + 10
+        }, 1000)
+    }
+    var a = method1();
+    console.log(a)
+    var b = method2(a)
+    console.log(b);
+    //이렇게 안됨... 이 때 promise를 써야 함
+    console.log(`haha`);
+    //자바는 동기식으로 위에서 순서대로 진행함
+    //JS는 비동기식으로 순서가 다르게 찍힘, 자바스크립트는 오래걸리면 지나감
+</script>
+</body>
+</html>

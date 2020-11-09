@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = {
+            var : [10, 3, 2, 4, 1, 9, 77],
+            find: function(callback){
+                var temp = []
+                for(let i = 0; i < this.var.length; i++){
+                    var result = callback(this.var[i])
+                    if(result){
+                        temp.push(this.var[i])
+                    }
+                }
+                return temp
+            }
+        }
+        var one = arr.find(function(item){
+            return item % 2 == 1
+        })
+        console.log(`one : ${one}`)
+    </script>
+</body>
+</html>

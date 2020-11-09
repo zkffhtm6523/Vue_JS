@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function My(){
+            var that = this;
+            this.age = 10;
+            //콜백함수 or return을 할 때
+            //동적 스코프
+            this.fn2_1 = function(){
+                return function(){
+                    console.log('fn2_1(익명)');
+                    console.log(this);
+                }.bind(this)
+            }
+            //렉시럴 스코프, 정적 스코프
+            this.fn2_2 = function() {
+                return () => {
+                    console.log('fn2_2(애로우)');
+                    console.log(this);
+                }
+            }
+        }
+        var obj2 = new My()
+        var mtd1 = obj2.fn2_1();
+        var mtd2 = obj2.fn2_2();
+        mtd1()
+        mtd2()
+    </script>
+</body>
+</html>

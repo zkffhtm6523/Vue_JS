@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //동적 스코프는 메소드의 내부함수, 콜백함수, 리턴 익명함수
+        function My(){
+            this.age = 10;
+            console.log(this);
+        }
+        function My2(){
+            this.age2 = 10;
+            this.fn1_1 = () => {
+                console.log('fn1_1(애로우)');
+                console.log(this);
+            }
+            this.fn1_2 = function(){
+                console.log('fn1_2(익명)');
+                console.log(this);
+            }
+            //콜백함수 or return을 할 때
+            //동적 스코프
+            this.fn2_1 = function(){
+                return function(){
+                    console.log('fn2_1(익명)');
+                    console.log(this);
+                }.bind(this)
+            }
+            //렉시럴 스코프, 정적 스코프
+            this.fn2_2 = function() {
+                return () => {
+                    console.log('fn2_2(애로우)');
+                    console.log(this);
+                }
+            }
+        }
+        console.log(`My 함수 호출`);
+        My()
+        var obj = new My();
+        console.log(`obj.age : ${obj.age}`);
+        console.log(`window.age : ${window.age}`);
+        //window.age하면 안 나옴
+
+        var obj2 = new My2()
+        obj2.fn1_1();
+        obj2.fn1_2();
+        var mtd1 = obj2.fn2_1();
+        var mtd2 = obj2.fn2_2();
+        mtd1()
+        mtd2()
+    </script>
+</body>
+</html>

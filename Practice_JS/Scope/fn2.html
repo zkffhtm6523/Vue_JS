@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function My(){
+            this.age = 10;
+            console.log(this);
+        }
+        //함수 호출 : 두 방법 같음
+        My();
+        window.My();
+        /*
+        이거하고 똑같음
+        this.age = 10;
+        console.log(this);
+        */
+        var height = 100;
+        window.height = 150;
+
+        console.log(`height : ${height}`);
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission1</title>
+</head>
+<body>
+    <script>
+        function test(item){
+            return item < 10
+        }
+        //item에 자동으로 찾아들어감
+        var arr = [11, 2, 6, 8, 10, 19, 5]
+        var arr2 = arr.filter(function(item){
+            return item < 10
+        })
+        var arr3 = arr.filter(test)
+        console.log(arr2)
+        console.log(arr3)
+    </script>
+</body>
+</html>

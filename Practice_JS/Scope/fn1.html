@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //자바는 클래스 기반 객치 지향 언어 : 자바는 안 됨
+        //동적 프로토타입 기반 객체 지향 언어
+        //동적은 객체 생성하고 나서 계속 추가할 수 있음
+        /*
+            arrow를 하면 this가 현재 포함하는 거
+            일반 함수를 하면 scope가 윈도우
+
+
+            new를 사용하면 객체가 변수에 넘어가고
+            일반함수를 하면 window가 scope
+            arrow function를 하면 this가 자신이고
+
+            var obj = dd();를 하면 함수 호출이 변수에 담기니까 obj에는
+            아무것도 안 담기고 dd()만 실행된다
+
+            var obj = new dd();를 하면 this가 객체 자신
+            dd()를 하면 이 때 this는 윈도우에 name이 박힘..전역변수로 선언한거하고 똑같은 효과
+
+            return을 할 때 new를 하면 자기 자신
+        */
+        
+        function MyFn(){
+            this.name = '영혁'
+            this.method2 = function(){
+                console.log(this.name)
+            }
+        }
+        MyFn.prototype.method1 = function(){
+            console.log('method1 this : '+this.name)
+            this.name = '영혁1'
+            console.log('method1 그냥 : '+name)
+            console.log('method1 this : '+this.name)
+            MyFn.prototype.method3 = () =>{
+                console.log('method3 this : '+this.name);
+                name = '영혁3'
+                console.log('method3 this : '+this.name);
+                console.log('method3 그냥 : '+name);
+            }
+            new MyFn().method3()
+        }
+        new MyFn().method1()
+        new MyFn().method2()
+        //중간에 메소드를 생성할 수 있다
+        //ㅜ
+    </script>
+</body>
+</html>
