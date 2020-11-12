@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{msg}}</div>
+        <div><input type="text" v-model="val"></div>
+        <div>
+            <div>{{val}}</div>
+            <div>{{val}}</div>
+            <div>{{val}}</div>
+            <div>{{val}}</div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+    //부모는 무조건 한 개가 있어야 되고, 우선 div로 감싼다, app이라는 아이디를 준다
+    new Vue({
+        //element 최초의 부모 등록
+        //1급 객체
+        //data라는 변수에는 또 객체를 넣음
+        el: '#app',
+        data: {
+            val: '',
+            msg: '하하하'
+        }
+    })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <!--bind는 값을 주고 끝, model은 주고 다시 돌아온다-->
+            <input type="text" v-model="txt" v-on:keyup.space="add">
+            <button v-on:click="add">추가</button>
+        </div>
+        <!--v-bind:key는 안 줘도 되지만 주는 것을 추천, 고유값 index 같은 느낌-->
+        <div v-for="item in todos" v-bind:key="item.id">
+            {{item.id}} / {{item.txt}}
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+    new Vue({
+        el: '#app',
+        data: {
+            id : 3,
+            txt : '',
+            todos: [
+                {id: 1, txt: '반장 수고했어'},
+                {id: 2, txt: '부반장 때리고 싶다'},
+                {id: 3, txt: '여러분 취업 잘 하세요'}
+            ]
+        },
+        methods: {
+            add(){
+                var obj = {
+                    id: ++this.id,
+                    txt: this.txt
+                }
+                this.todos.push(obj)
+                this.txt = ''
+            }
+        }
+    })
+
+    </script>
+</body>
+</html>
