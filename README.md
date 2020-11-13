@@ -10,7 +10,7 @@
  : npm install -g vue-cli
 
 ### vue 세팅하기
- :vue init webpack-simple todo_app
+ :vue init webpack todo_app
 
 ### setting
  : project name : todo_app
@@ -18,6 +18,7 @@
  : author : david
  : license : MIT
  : Use sass : No
+ : ESling : no
 
  cd todo_app
  //package.json에 있는 것 설치, maven으로 치면 pom.xml과 비슷
