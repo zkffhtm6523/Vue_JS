@@ -13,12 +13,12 @@
  :vue init webpack todo_app
 
 ### setting
- : project name : todo_app
- : description : A Vue.js project
- : author : david
- : license : MIT
- : Use sass : No
- : ESling : no
+ : project name : todo_app <br>
+ : description : A Vue.js project <br>
+ : author : david <br>
+ : license : MIT <br>
+ : Use sass : No <br>
+ : ESling : no <br>
 
  cd todo_app
  //package.json에 있는 것 설치, maven으로 치면 pom.xml과 비슷
